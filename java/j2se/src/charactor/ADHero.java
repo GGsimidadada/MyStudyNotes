@@ -8,7 +8,7 @@ public class ADHero extends Hero implements AD {
 	
 	@Override
 	public void attack () {
-		System.out.println(this.name + "发动了攻击");
+		System.out.print(this.name + "发动了攻击");
 	}
 	
 	// 隐藏父类静态方法

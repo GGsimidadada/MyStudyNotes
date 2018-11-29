@@ -1,7 +1,10 @@
 package charactor;
 
+import property.Armor;
+import property.LifePotion;
+import property.Weapon;
 
-public class Hero {
+public abstract class Hero {
 	String name;
 	float hp;
 	float armor;
@@ -17,9 +20,6 @@ public class Hero {
 	public static void battle () {
 		System.out.println("Hero battle");
 	}
-	public void attack () {
-		System.out.println("Hero 发动了攻击");
-	}
 	
 	// 当实例被垃圾回收时，会触发此方法
 	public void finalize () {
@@ -34,6 +34,9 @@ public class Hero {
 //		}
 //		return false;
 //	}
+	
+	// 抽象方法，父类定义抽象方法后，子类必须重新定义
+	public abstract void attack();
 	
 	// 父类构造方法，无参数
 	public Hero () {
@@ -75,7 +78,11 @@ public class Hero {
 		DZ.heal(null);
 		DZ.getCopyright();
 		
-		boolean b = SF.equals(SF);
-		System.out.println(b);
+		Weapon w = new Weapon();
+		Armor a = new Armor();
+		LifePotion l = new LifePotion();
+		System.out.println(w.disposable());
+		System.out.println(a.disposable());
+		System.out.println(l.disposable());
 	}
 }
