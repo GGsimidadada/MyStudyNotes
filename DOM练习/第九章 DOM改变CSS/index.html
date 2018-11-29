@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang = "en" >
+	<head >
+		<meta charset = "UTF-8" >
+		<title >Title</title >
+		<script >
+			window.onload = function () {
+				//目的：给紧跟在所有h1后面的元素添加样式
+				function setStyle() {
+					//判断浏览器兼容性
+					if(!document.getElementsByTagName) return false;
+					//拿到所有h1
+					var heads = document.getElementsByTagName("h1");
+                    var ele,head;
+					for (var i=0; i<heads.length; i++) {
+					    head = heads[i];
+					    ele = getNextElement(head.nextSibling);
+					    ele.style.fontFamily = "微软雅黑";
+					    ele.style.fontSize = "12px";
+					    ele.style.fontWeight = "900";
+					    ele.style.color = "red";
+					}
+                }
+                
+                //创建获取下一个元素节点的函数
+				function getNextElement(node) {
+				    //判断node是不是element节点
+				    if (node.nodeType === 1) {
+				        return node;
+					}
+					//如果不是element，判断node的nextSibling是否存在
+					else if(node.nextSibling) {
+				        return getNextElement(node.nextSibling)
+					}
+					//如果node没有nextSibling，返回空值
+					else {
+				        return null;
+					}
+				}
+				
+				setStyle();
+            }
+			
+		</script>
+	</head >
+	<body >
+		<h1 >我是h1</h1 >
+		<p >我是p</p >
+		<h1 >我是h1</h1 >
+		<p >我是p</p >
+		<h1 >我是h1</h1 >
+		<p >我是p</p >
+		<h1 >我是h1</h1 >
+		<p >我是p</p >
+		<h1 >我是h1</h1 >
+		<p >我是p</p >
+		<h1 >我是h1</h1 >
+		<p >我是p</p >
+	</body >
+</html >

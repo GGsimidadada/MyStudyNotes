@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang = "en" >
+	<head >
+		<meta charset = "UTF-8" >
+		<title >Title</title >
+		<style>
+			
+			#slideshow {
+				width: 100px;
+				height: 100px;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			#preview {
+				position: absolute;
+				width: 400px;
+				height: 100px;
+			}
+		</style>
+		<script >
+			window.onload = function () {
+				function prepareSlideshow() {
+					//做一些兼容性的判断，即使浏览器不支持这些方法也不会报错，而是静悄悄的离开
+					if (!document.getElementsByTagName) return false;
+					if (!document.getElementById) return false;
+					if (!document.getElementById("linklist")) return false;
+					
+                    var linklist = document.getElementById("linklist");
+                    var links = linklist.getElementsByTagName("a");
+                    
+                    //动态生成动画载体和图片
+					var slideshow = document.createElement("div");
+					slideshow.setAttribute("id", "slideshow");
+					var preview = document.createElement("img");
+					preview.setAttribute("src", "images/2.jpg");
+					preview.setAttribute("id", "preview");
+					slideshow.appendChild(preview);
+					//用insertAfter函数在指定元素后面添加元素
+					insertAfter(slideshow, linklist);
+					for (var i=0; i<links.length; i++) {
+					    var link = links[i];
+					    link.index = i + 1;
+					    
+					    //绑定鼠标移入事件，鼠标移入相应的a链接，使图片动画移动一定的距离
+					    link.onmouseover = function () {
+                            moveElement("preview", -100*this.index, 0, 15);
+                        }
+					}
+                }
+                
+                //平移动画函数
+                function moveElement(elementID, targetX, targetY, interval) {
+				    if (!document.getElementById) return false;
+				    if (!document.getElementsByTagName) return false;
+				    var elem = document.getElementById(elementID);
+				    
+				    //检测对象身上有没有在执行的动画函数，如果有则清除
+				    if (elem.moveTime) clearTimeout(elem.moveTime);
+				    if (!elem.style.left) elem.style.left = 0;
+				    if (!elem.style.top) elem.style.top = 0;
+				    var currentX = parseInt(elem.style.left);
+				    var currentY = parseInt(elem.style.top);
+				    if (currentX === targetX && currentY === targetY) return true;
+				    if (currentX < targetX) {
+                        currentX += Math.ceil((targetX - currentX) / 10);
+					}
+				    if (currentX > targetX) {
+                        currentX += Math.floor((targetX - currentX) / 10);
+					}
+				    if (currentY < targetY) {
+                        currentY += Math.ceil((targetY - currentX) / 10);
+					}
+				    if (currentY > targetY) {
+                        currentY += Math.floor((targetY - currentX) / 10);
+					}
+					
+					//注意别忘了加单位！
+				    elem.style.left = currentX + "px";
+					elem.style.top = currentY + "px";
+                    console.log(currentX);
+                    
+                    //回调函数，设定延迟时间从而产生动画效果
+                    elem.moveTime = setTimeout(function () {
+						moveElement(elementID, targetX, targetY, interval);
+                        console.log(1);
+                    }, interval)
+                }
+                
+                function insertAfter(newElement, targetElement) {
+					var parent = targetElement.parentNode;
+					if (targetElement === parent.lastChild) {
+					    parent.appendChild(newElement);
+					} else {
+					    parent.insertBefore(newElement, targetElement.nextSibling);
+					}
+                }
+                
+                prepareSlideshow();
+            }
+			
+		</script>
+	</head >
+	<body >
+		<h1>Web Design</h1>
+		<p>Tgese are the things yoou should know.</p>
+		<ol id="linklist">
+			<li ><a href = "#" >Structure</a ></li >
+			<li ><a href = "#" >Presentation</a ></li >
+			<li ><a href = "#" >Behavior</a ></li >
+		</ol >
+	</body >
+</html >

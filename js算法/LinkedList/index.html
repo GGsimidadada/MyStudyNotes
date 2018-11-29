@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./LinkedList.js" ></script>
+    <script>
+        /* const linkedList = new LinkedList();
+        linkedList.append('高浩然');
+        console.log(linkedList.size());
+        console.log(linkedList.isEmpty());
+        console.log(linkedList.getHead());
+        linkedList.append('然然');
+        linkedList.append('萱萱');
+        linkedList.append('花花');
+        linkedList.append('高兴');
+        linkedList.insert(2, '嘿嘿');
+        console.log(linkedList.removeAt(1));
+        console.log(linkedList.remove('花花'));
+        console.log(linkedList.indexOf('高浩然'));
+        linkedList.print(); */
+
+        const dblLinkedList = new DoubleLinkedList();
+        console.log(dblLinkedList.insert(0, '高浩然'));
+        console.log(dblLinkedList.insert(1, '李花'));
+        console.log(dblLinkedList.insert(2, '萱萱'));
+        console.log(dblLinkedList.insert(4, '高兴'));
+        console.log(dblLinkedList.removeAt(1, '李花'));
+    </script>
+</body>
+</html>

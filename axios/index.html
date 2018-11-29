@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <script>
+        /* var instance = axios.create({
+            data: {
+                name: '1'
+            }
+        });
+        instance.defaults.params = {
+            name: '2'
+        };
+        instance.post('/axios.md', {
+            name: '3'
+        }, {
+            data: {
+                name: '4',
+                title: '哈哈'
+            },
+            validateStatus: function (status) {
+                return status < 500; // 状态码在大于或等于500时才会 reject
+            }
+        }).then(res => {
+
+        }, e => {
+            console.log(e.config);
+            console.log(e.response);
+            console.log(e.message);
+            console.log([e]);
+        }).catch(a => {
+            console.log([a, 1]);
+
+        }); */
+
+        /* function getImg() {
+            return instance.get('/img.jpg?name=55', {
+                params: {
+                    name: '2'
+                }
+            });
+        }
+        function getMd() {
+            return instance.post('/axios.md', {
+                name: '3'
+            }, {
+                data: {
+                    age: '5'
+                }
+            });
+        }
+        
+        axios.all([getImg(), getMd()])
+            .then(axios.spread((imgResponse, mdResponse) => {
+                // 两个请求都完成后，打印两个请求对象
+                console.log([imgResponse, mdResponse]);
+            })) */
+
+        
+        var CancelToken = axios.CancelToken;
+        var source = CancelToken.source();
+        var source2 = CancelToken.source();
+
+        console.log(source);
+        axios.get('/img.jpg', {
+            cancelToken: source.token
+        }).catch(aa => {
+            if (axios.isCancel(aa)) {
+                console.log(aa.message);
+            }
+        });
+
+        axios.get('/axios.md', {
+            cancelToken: source.token
+        }).catch(aa => {
+            if (axios.isCancel(aa)) {
+                console.log(aa.message);
+            }
+        });
+
+        // 取消请求
+        source.cancel('请求已取消');
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .one {
+            width: 300px;
+            height: 300px;
+            background-color: #0f0;
+            border-radius: 0 0 0 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="one" ></div>
+
+    <script>
+        class Person {
+            constructor (name) {
+                this._name = name;
+            }
+
+            get name() {
+                return this._name;
+            }
+
+            set name(value) {
+                this._name = value;
+            }
+        }
+
+        const body = new Person('萱萱');
+        console.log(body.name);
+        body.name = '老婆';
+        console.log(body.name);
+        body._name = '媳妇儿';
+        console.log(body.name);
+        console.log(body._name);
+
+        let array = [1, 2, 3, 4];
+        console.log(array.find(n => {
+            return n % 2 === 0
+        }));
+    </script>
+</body>
+</html>

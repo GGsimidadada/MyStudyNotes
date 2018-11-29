@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var  arr = [
+            {sid: 20, sname: "哈哈"},
+            {sid: 29, sname: "嘿嘿"},
+            {sid: 60, sname: "嘻嘻"},
+            {sid: 90, sname: "吼吼"}
+        ];
+        var obj = {};
+        
+        for (var i = 0; i < arr.length; i++) {
+            obj[arr[i].sid] = arr[i].sname;
+        }
+        console.log(obj);
+        console.log(obj["20"]);
+    </script>
+</body>
+</html>

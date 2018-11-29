@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang = "en" >
+	<head >
+		<meta charset = "UTF-8" >
+		<title >Title</title >
+		<style>
+			body {
+				font-family: "Helvetica" ,"Arial", sans-serif;
+				background-color: #fff;
+				color: #000;
+			}
+			
+			table {
+				margin: auto;
+				border: 1px solid #699;
+			}
+			
+			caption {
+				margin: auto;
+				padding: .2em;
+				font-size: 1.2em;
+				font-weight: bold;
+			}
+			
+			th {
+				font-weight: normal;
+				font-style: italic;
+				text-align: left;
+				border: 1px dotted #669999;
+				background-color: #99cccc;
+				color: #000;
+			}
+			
+			th, td {
+				width: 10em;
+				padding: .5em;
+			}
+			
+			.info {
+				color: #ff0;
+			}
+			
+		</style>
+		<script >
+			window.onload = function () {
+				function setStyle() {
+					if(!document.getElementsByTagName) return false;
+					var tables = document.getElementsByTagName("table");
+					var odd, rows;
+					for (var i=0; i<tables.length; i++) {
+					    odd = false;
+					    rows = tables[i].getElementsByTagName("tr");
+					    for (var j=1; j<rows.length; j++) {
+					        if (odd === true) {
+                                addClass(rows[j], "info");
+								odd = false;
+							}
+							else {
+                                rows[j].style.backgroundColor = "#ffc";
+					            odd = true;
+							}
+							rows[j].onmouseover = function () {
+								this.style.fontWeight = "bold";
+                            };
+                            rows[j].onmouseout = function () {
+								this.style.fontWeight = "normal";
+                            };
+						}
+					}
+                }
+                
+                function addClass(element, newClass) {
+					if (!element.className) {
+					    element.className = newClass;
+					} else {
+					    element.className += " " + newClass;
+					}
+                }
+                
+                setStyle();
+            }
+			
+		</script>
+	</head >
+	<body >
+		<table >
+			<caption >Itinerary</caption >
+			<thead >
+				<tr >
+					<th >When</th >
+					<th >Where</th >
+				</tr >
+			</thead >
+			<tbody >
+				<tr class = "red">
+					<td >June 9th</td >
+					<td >Portland,<abbr title = "Oregon" >OR</abbr ></td >
+				</tr >
+				<tr >
+					<td >June 10th</td >
+					<td >Seattle,<abbr title = "Washington" >WA</abbr ></td >
+				</tr >
+				<tr >
+					<td >June 12th</td >
+					<td >Sacramento,<abbr title = "California" >CA</abbr ></td >
+				</tr >
+				<tr >
+					<td >June 9th</td >
+					<td >Portland,<abbr title = "Oregon" >OR</abbr ></td >
+				</tr >
+				<tr >
+					<td >June 10th</td >
+					<td >Seattle,<abbr title = "Washington" >WA</abbr ></td >
+				</tr >
+				<tr >
+					<td >June 12th</td >
+					<td >Sacramento,<abbr title = "California" >CA</abbr ></td >
+				</tr >
+				<tr >
+					<td >June 9th</td >
+					<td >Portland,<abbr title = "Oregon" >OR</abbr ></td >
+				</tr >
+				<tr >
+					<td >June 10th</td >
+					<td >Seattle,<abbr title = "Washington" >WA</abbr ></td >
+				</tr >
+				<tr >
+					<td >June 12th</td >
+					<td >Sacramento,<abbr title = "California" >CA</abbr ></td >
+				</tr >
+			</tbody >
+		</table >
+	</body >
+</html >

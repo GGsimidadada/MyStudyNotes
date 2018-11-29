@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<link rel="stylesheet" href="css/index.css">
+		
+	</head>
+	<body>
+		<h4>图片切换</h4>
+		<ul>                                                              <!--return false   防止点击链接触发默认跳转页面-->
+			<li><a href="images/door1.png" title="1080P神器" onclick="showPic(this);return false">"1080P神器"</a></li>
+			<li><a href="images/door2.png" title="5.5寸四核" onclick="showPic(this);return false">"5.5寸四核" </a></li>
+			<li><a href="images/door3.png" title="四核5寸" onclick="showPic(this);return false">"四核5寸" </a></li>
+			<li><a href="images/door4.png" title="5.7寸机皇" onclick="showPic(this);return false">"5.7寸机皇" </a></li>
+		</ul>
+		<img id="placeholder" src="images/p01_03.png" alt="my image gallery">
+		<p id="description" >当前是默认图片</p>
+	</body>
+	<script src="js/index.js"></script>
+</html>

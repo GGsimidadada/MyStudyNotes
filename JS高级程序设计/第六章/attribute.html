@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang = "en" >
+	<head >
+		<meta charset = "UTF-8" >
+		<title >Title</title >
+	
+	</head >
+	<body >
+		<script >
+			var p = {};
+			p.property = {
+			    name: "lilei",
+				age: 18,
+				sex: "man"
+			};
+            console.log(Object.keys(p.property));
+            
+            console.log(Object.getOwnPropertyNames(p.constructor.prototype));
+            
+            function Person() {
+				
+            }
+            
+            Person.prototype = {
+            	name: ["李磊"]
+			};
+            var c = new Person();
+            var d = new Person();
+            c.name = ['喊妈妈'];
+            console.log(c.name);
+            console.log(d.name);
+            
+            function SpecialArr() {
+				var values = new Array();
+                console.log(arguments);
+                console.log(arguments.toString());
+                values.push.apply(values, arguments);
+				values.toPipedString = function () {
+					return this.join("|")
+                };
+                return values;
+            }
+            var m = new SpecialArr("jack", "rose", "hack");
+            console.log(m.toPipedString());
+		
+		</script >
+	</body >
+</html >

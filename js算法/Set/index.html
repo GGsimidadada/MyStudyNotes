@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./Set.js" ></script>
+    <script>
+        /* const setLike = new SetLike();
+        setLike.add('高浩然');
+        setLike.add(18);
+        setLike.add(true);
+        setLike.add({wife: '萱萱'});
+        setLike.add({child: '高兴'});
+        console.log(setLike.values());
+        console.log(setLike.size());
+        setLike.delete('true');
+        console.log(setLike.values()); */
+
+        const setA = new SetLike();
+        /* setA.add(1);
+        setA.add(2); */
+        setA.add(3);
+        setA.add(4);
+
+        const setB = new SetLike();
+        setB.add(3);
+        setB.add(4);
+        setB.add(5);
+        setB.add(6);
+
+        const setC = setA.subset(setB);
+        console.log(setC);
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang = "en" >
+	<head >
+		<meta charset = "UTF-8" >
+		<title >Title</title >
+		<style>
+			div {
+				width: 60px;
+				height: 20px;
+				color: red;
+				background-color: #ff00ff;
+				text-align: center;
+				font-size: 12px;
+				font-family: "微软雅黑";
+			}
+		</style>
+		<script src="js/moveElement.js"></script>
+		<script src="js/positionEvent.js"></script>
+		<script >
+			window.onload = function () {
+                function createMoveElement() {
+					if (!document.createElement) return false;
+					var i=0;
+					var div;
+					function createElement() {
+                        div = document.createElement("div");
+                        div.innerText = "呀呀呀我在飞";
+                        div.id = "move" + i;
+                        div.style.backgroundColor = "#" + Math.floor(Math.random()*1000000);
+                        div.style.color = "#" + Math.floor(Math.random()*1000000);
+                        var startX = Math.floor(Math.random()*1300);
+                        var startY = Math.floor(Math.random()*600);
+                        div.style.position = "absolute";
+                        div.style.left = startX + "px";
+                        div.style.top = startY + "px";
+                        document.body.appendChild(div);
+                        positionEvent(div.id, 10);
+                        createTime = setTimeout(function () {
+                            i++;
+                            createElement();
+                        },500)
+                    }
+                    createElement();
+                }
+                
+                createMoveElement();
+            }
+			
+		</script>
+	</head >
+	<body >
+	
+	</body >
+</html >
