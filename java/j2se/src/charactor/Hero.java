@@ -46,6 +46,23 @@ public abstract class Hero {
 		System.out.println("Hero的有一个参数的构造方法");
 	}
 	
+	// 创建非静态内部类
+	class BattleScore {
+		int kill;
+		int die;
+		int assit;
+		public void legendary() {
+			if (kill > 9) System.out.println(name + "超神了！");
+			else System.out.println(name + "继续努力！");
+		}
+	}
+	
+	// 创建静态内部类
+	static class EnemyCrystal {
+		int hp = 5000;
+		
+	}
+	
 	public static void main (String[] args) {
 		ADHero SF = new ADHero();
 		SF.name = "影魔";
@@ -78,11 +95,8 @@ public abstract class Hero {
 		DZ.heal(null);
 		DZ.getCopyright();
 		
-		Weapon w = new Weapon();
-		Armor a = new Armor();
-		LifePotion l = new LifePotion();
-		System.out.println(w.disposable());
-		System.out.println(a.disposable());
-		System.out.println(l.disposable());
+		BattleScore score = SF.new BattleScore();
+		score.kill = 10;
+		score.legendary();
 	}
 }
