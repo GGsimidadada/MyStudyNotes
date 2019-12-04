@@ -318,3 +318,11 @@ personModel.create({
 });
 ```
 
+
+
+### Node常用模块
+
+#### http
+
+引入模块：`const http = require('http');`
+
